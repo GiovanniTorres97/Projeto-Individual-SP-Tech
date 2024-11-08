@@ -109,8 +109,8 @@ footer p{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 40%;
-    height: 75%;
+    width: 35%;
+    height: 55%;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 3rem;
 }
@@ -120,10 +120,14 @@ footer p{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 60%;
-    height: 85%;
+    width: 45%;
+    height: 65%;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 3rem;
+}
+
+.telaCadastro h1 {
+    font-size: 2rem;
 }
 
 #inputs-login {
