@@ -6,21 +6,23 @@ html, body {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    font-family: 'Century Gothic';
 }
 
 header {
-    padding: 0 3rem;
-    background-color: rgba(41, 41, 41, 0.984);
+    padding: 0 7rem;
+    background-color: rgb(33, 7, 39);
     width: 100%;
-    
+    font-family: 'Segoe Script';
 }
 
 header h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 2rem;
-    font-size: 2rem;
+    font-family: 'Segoe Script';
+    font-size: 2.1rem;
+    font-weight: lighter;
     
 }
 
@@ -36,6 +38,7 @@ header div.container {
     width: 100%;
     max-width: 100%;
     justify-content: space-between;
+    align-items: center;
     
 }
 
@@ -44,13 +47,12 @@ nav ul{
     justify-content: flex-end;
     gap: 1rem;
     list-style: none;
-    margin-right: 4rem;
+    margin: 0;
 }
 
 nav ul li {
     display: flex;
     padding: 1rem;
-    margin: 1rem;
     font-size: 1.2rem;
 }
 
@@ -65,22 +67,24 @@ main {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 80vh;
-    background: url("https://wallpapercave.com/wp/NL0GseB.jpg") no-repeat center center fixed;
+    height: 100vh;
+    background: url("assets/images/beautiful-music-glowing-musical-notes-57bxkzfcian4xexm.jpg") no-repeat center center;
     background-size: cover;
 }
 
 
 
 .botaoLogin {
-        padding: 10px 20px;
+        padding: 8px 10px;
         background-color: #602276c0;
         border-radius: 3rem;
         color: white;
-        font-size: 1.2rem;
-        text-decoration: none; /* Remove o sublinhado do link */
+        font-size: 1.1rem;
+        text-decoration: none;
         display: inline-block;
         text-align: center;
+        width: 6.4rem;
+        margin-bottom: 1rem;
 }
 
 .botaoLogin:hover {
@@ -89,10 +93,81 @@ main {
 
 footer {
     text-align: center;
-    padding: 1.2rem;
-    background-color: rgba(41, 41, 41, 0.984);
-    position: fixed;
+    padding: 1rem;
+    background-color: rgb(33, 7, 39);
     width: 100%;
     bottom: 0;
     box-sizing: border-box;
+}
+
+footer p{
+    font-size: 1rem;
+}
+
+.telaLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    height: 75%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 3rem;
+}
+
+.telaCadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    height: 85%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 3rem;
+}
+
+#inputs-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+    height: 2rem;
+}
+
+input {
+    width: 20rem;
+    height: 2.2rem;
+    border-radius: 4rem;
+    margin-bottom: 2rem;
+    background-color: rgba(41, 40, 40, 0.733);
+    border: 2px solid #2d023d;
+    text-align: center;
+    
+}
+
+p {
+    font-size: 25px;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.telaLogin h1 {
+    font-size: 2rem;
+}
+
+.divide{
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+input::placeholder {
+    color: rgba(245, 245, 245, 0.603);
+    text-align: center;
+}
+
+.container-form{
+    display: flex;
+    gap: 2px;
 }
