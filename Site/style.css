@@ -220,32 +220,35 @@ input::placeholder {
 }
 
 select {
-    border-radius: 4rem; /* Borda arredondada igual aos inputs */
-    background-color: rgba(41, 40, 40, 0.733); /* Cor de fundo igual aos inputs */
-    border: 2px solid #2d023d; /* Borda igual aos inputs */
-    text-align: center; /* Centraliza o texto dentro do select */
-    color: white; /* Cor do texto (branco) */
-    font-size: 1rem; /* Tamanho da fonte igual aos inputs */
+    border-radius: 4rem; 
+    background-color: rgba(41, 40, 40, 0.733); 
+    border: 2px solid #2d023d; 
+    text-align: center; 
+    color: white; 
+    font-size: 1rem; 
     transition: transform 0.3s ease-in-out;
     appearance: none;
 }
 
 select option {
     background-color: #2d023d;
-    color: white; /* Cor do texto das opções */
+    color: white; 
     
 }
 
-select:focus {
-    border-color: #411553; /* Altera a cor da borda ao focar */
-    background-color: rgba(33, 7, 39, 0.9); /* Muda a cor de fundo ao focar */
-    transform: scale(1.05); /* Dá um efeito de crescimento ao clicar */
-    max-height: 12rem; /* Expande a altura para simular a "abertura" */
-    outline: none; /* Remove a borda padrão de foco */
+option:focus {
+    border-color: #411553; 
+    background-color: rgba(33, 7, 39, 0.9); 
+    transform: scale(1.05); 
+    max-height: 12rem; 
+    outline: none; 
 }
 
-
 select option:hover {
-    background-color: #411553; /* Cor de fundo ao passar o mouse */
-    color: white; /* Cor do texto */
+    background-color: #411553;
+    color: white;
+}
+
+select:active {
+    background-color:   rgba(33, 7, 39, 0.9);
 }
