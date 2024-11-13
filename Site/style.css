@@ -1,3 +1,8 @@
+@font-face {
+    font-family: BloggerSans;
+    src: url(assets/fonts/Blogger\ Sans.otf);
+}
+
 html, body {
     width: 100%;
     height: 100%;
@@ -6,7 +11,7 @@ html, body {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    font-family: 'Century Gothic';
+    font-family: 'BloggerSans';
 }
 
 header {
