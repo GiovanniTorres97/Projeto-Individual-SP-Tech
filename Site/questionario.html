@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/icons/Wackypixel-Lesters-Electric-Guitar-Burst-Guitar.ico"
+        type="image/x-icon">
+    <title>Questionário Musical</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>My Life, My Playlist</h1>
+            <nav>
+                <ul>
+                    <li><a href="telaInicial.html">Home</a></li>
+                    <li><a href="#sobreMim">Sobre Mim</a></li>
+                    <li><a href="login.html">Entrar</a></li>
+                    <li><a href="telaCadastro.html">Cadastre-se</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+        <div class="divQuestionario">
+            <h1>Questionário</h1>
+            <form id="questionario">
+                <div class="inputsQuestionario">
+                    <div class="pergunta">
+                        <p>1. Qual gênero de música você mais ouve?</p>
+                        <select name="q1">
+                            <option value="#"></option>
+                            <option value="pop">Pop</option>
+                            <option value="rock">Rock</option>
+                            <option value="sertanejo">Sertanejo</option>
+                            <option value="funk">Funk</option>
+                            <option value="mpb">MPB</option>
+                            <option value="rap">Rap</option>
+                            <option value="samba">Samba</option>
+                            <option value="eletronica">Eletrônica</option>
+                        </select>
+                    </div>
+
+                    <div class="pergunta">
+                        <p>2. A música ajuda a melhorar o seu humor?</p>
+                        <select name="q2">
+                            <option value="#"></option>
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
+                            <option value="asVezes">Às vezes</option>
+                        </select>
+                    </div>
+
+                    <div class="pergunta">
+                        <p>3. A música te ajuda a lembrar de momentos especiais?</p>
+                        <select name="q3">
+                            <option value="#"></option>
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
+                            <option value="asVezes">Às vezes</option>
+                        </select>
+
+                    <div class="pergunta">
+                        <p>4. Você gosta de música mais para relaxar ou para se animar?</p>
+                        <select name="q4">
+                            <option value="#"></option>
+                            <option value="relaxar">Relaxar</option>
+                            <option value="animar">Animar</option>
+                            <option value="ambos">Ambos</option>
+                        </select>
+
+                    <div class="pergunta">
+                        <p>5. Você escuta música para refletir sobre sentimentos ou para lazer?</p>
+                        <select name="q5">
+                            <option value="#"></option>
+                            <option value="refletir">Refletir</option>
+                            <option value="lazer">Lazer</option>
+                        </select>
+
+                    <div class="pergunta">
+                        <p>6.  Numa escala de 1 a 5, qual a intensidade da conexão emocional que a música gera em você? </p>
+                        <select name="q6">
+                            <option value="#"></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    
+                        <div class="pergunta">
+                            <p>7. A música ajuda a melhorar o seu humor ou a lidar com situações difíceis?</p>
+                            <select name="q7">
+                                <option value="#"></option>
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                                <option value="talvez">Talvez</option>
+                            </select>
+
+                        <div class="pergunta">
+                            <p>8. Você já se emocionou ao ouvir uma música?</p>
+                            <select name="q8">
+                                <option value="#"></option>
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
+                        
+                        <div class="pergunta">
+                            <p>8. Você sente que a música influencia sua energia?</p>
+                            <select name="q9">
+                                <option value="#"></option>
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
+                </div>
+                    <button type="button" onclick="submitQuestionario()" class="botaoLogin">Enviar
+                        Respostas
+                    </button>
+                    <p id="resultado"></p>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Life, My Playlist. A SPTech School Project</p>
+    </footer>
+
+    
+
+    <script>
+        function submitQuestionario() {
+            const questionario = document.getElementById('questionario');
+            const resultado = document.getElementById('resultado');
+
+            // Obter respostas
+            const respostas = {
+                q1: questionario.q1.value,
+                q2: questionario.q2.value,
+                q3: questionario.q3.value
+            };
+
+            // Verifica se todas as perguntas foram respondidas
+            if (!respostas.q1 || !respostas.q2 || !respostas.q3) {
+                resultado.innerText = "Por favor, responda todas as perguntas.";
+                return;
+            }
+
+            // Exibe as respostas no console (ou processa para uma dashboard)
+            console.log("Respostas do Questionário:", respostas);
+
+            // Exibir mensagem de confirmação
+            resultado.innerText = "Obrigado por responder o questionário!";
+        }
+    </script>
+
+</body>
+
+</html>

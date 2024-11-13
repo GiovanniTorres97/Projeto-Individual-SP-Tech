@@ -23,14 +23,12 @@ header h1 {
     font-family: 'Segoe Script';
     font-size: 2.1rem;
     font-weight: lighter;
-    
 }
 
 * {
     color: white;
     box-sizing: border-box;
 }
-
 
 header div.container {
     display: flex;
@@ -39,10 +37,9 @@ header div.container {
     max-width: 100%;
     justify-content: space-between;
     align-items: center;
-    
 }
 
-nav ul{
+nav ul {
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
@@ -67,28 +64,26 @@ main {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100vh;
+    height: 60rem;
     background: url("assets/images/beautiful-music-glowing-musical-notes-57bxkzfcian4xexm.jpg") no-repeat center center;
     background-size: cover;
 }
 
-
-
 .botaoLogin {
-        padding: 8px 10px;
-        background-color: #602276c0;
-        border-radius: 3rem;
-        color: white;
-        font-size: 1.1rem;
-        text-decoration: none;
-        display: inline-block;
-        text-align: center;
-        width: 6.4rem;
-        margin-bottom: 1rem;
+    padding: 8px 10px;
+    background-color: #602276c0;
+    border-radius: 3rem;
+    color: white;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    width: 6.4rem;
+    margin-bottom: 1rem;
 }
 
 .botaoLogin:hover {
-    background-color: #411553
+    background-color: #411553;
 }
 
 footer {
@@ -100,7 +95,7 @@ footer {
     box-sizing: border-box;
 }
 
-footer p{
+footer p {
     font-size: 1rem;
 }
 
@@ -109,8 +104,8 @@ footer p{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 35%;
-    height: 55%;
+    width: 40rem;
+    height: 30rem;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 3rem;
 }
@@ -120,8 +115,8 @@ footer p{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 45%;
-    height: 65%;
+    width: 52rem;
+    height: 40rem;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 3rem;
 }
@@ -148,7 +143,6 @@ input {
     background-color: rgba(41, 40, 40, 0.733);
     border: 2px solid #2d023d;
     text-align: center;
-    
 }
 
 p {
@@ -161,7 +155,7 @@ p {
     font-size: 2rem;
 }
 
-.divide{
+.divide {
     width: 100%;
     margin-bottom: 35px;
 }
@@ -171,7 +165,87 @@ input::placeholder {
     text-align: center;
 }
 
-.container-form{
+.container-form {
     display: flex;
     gap: 2px;
+}
+
+.divQuestionario {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 3rem;
+    width: 50rem;
+    height: 50rem;
+    margin: 0 auto;
+    text-align: center;
+    overflow: scroll;
+}
+
+.inputsQuestionario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.inputsQuestionario select {
+    width: 15rem;
+    height: 2.5rem;
+    border-radius: 1.5rem;
+    background-color: rgba(41, 40, 40, 0.733);
+    border: 2px solid #2d023d;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+
+.pergunta {
+    margin-bottom: 0.7rem;
+}
+
+.inputsQuestionario button {
+    margin-top: 2rem;
+    width: 15rem;
+    text-align: center;
+}
+
+.inputsQuestionario button:hover {
+    background-color: #411553;
+}
+
+.divQuestionario::-webkit-scrollbar {
+    display: none;
+}
+
+select {
+    border-radius: 4rem; /* Borda arredondada igual aos inputs */
+    background-color: rgba(41, 40, 40, 0.733); /* Cor de fundo igual aos inputs */
+    border: 2px solid #2d023d; /* Borda igual aos inputs */
+    text-align: center; /* Centraliza o texto dentro do select */
+    color: white; /* Cor do texto (branco) */
+    font-size: 1rem; /* Tamanho da fonte igual aos inputs */
+    transition: transform 0.3s ease-in-out;
+    appearance: none;
+}
+
+select option {
+    background-color: #2d023d;
+    color: white; /* Cor do texto das opções */
+    
+}
+
+select:focus {
+    border-color: #411553; /* Altera a cor da borda ao focar */
+    background-color: rgba(33, 7, 39, 0.9); /* Muda a cor de fundo ao focar */
+    transform: scale(1.05); /* Dá um efeito de crescimento ao clicar */
+    max-height: 12rem; /* Expande a altura para simular a "abertura" */
+    outline: none; /* Remove a borda padrão de foco */
+}
+
+
+select option:hover {
+    background-color: #411553; /* Cor de fundo ao passar o mouse */
+    color: white; /* Cor do texto */
 }
