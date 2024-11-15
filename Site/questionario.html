@@ -13,13 +13,13 @@
 <body>
     <header>
         <div class="container">
-            <h1>My Life, My Playlist</h1>
+            <h1><a href="telaInicial.html">My Life, My Playlist</a></h1>
             <nav>
                 <ul>
                     <li><a href="telaInicial.html">Home</a></li>
-                    <li><a href="#sobreMim">Sobre Mim</a></li>
-                    <li><a href="login.html">Entrar</a></li>
-                    <li><a href="telaCadastro.html">Cadastre-se</a></li>
+                    <li><a href="index.html">Sobre Mim</a></li>
+                    <li><a href="questionario.html">Questionário</a></li>
+                    <li><a href="curiosidades.html">Curiosidades</a></li>
                 </ul>
             </nav>
         </div>
@@ -129,34 +129,6 @@
     <footer>
         <p>&copy; 2024 My Life, My Playlist. A SPTech School Project</p>
     </footer>
-
-    
-
-    <script>
-        function submitQuestionario() {
-            const questionario = document.getElementById('questionario');
-            const resultado = document.getElementById('resultado');
-
-            // Obter respostas
-            const respostas = {
-                q1: questionario.q1.value,
-                q2: questionario.q2.value,
-                q3: questionario.q3.value
-            };
-
-            // Verifica se todas as perguntas foram respondidas
-            if (!respostas.q1 || !respostas.q2 || !respostas.q3) {
-                resultado.innerText = "Por favor, responda todas as perguntas.";
-                return;
-            }
-
-            // Exibe as respostas no console (ou processa para uma dashboard)
-            console.log("Respostas do Questionário:", respostas);
-
-            // Exibir mensagem de confirmação
-            resultado.innerText = "Obrigado por responder o questionário!";
-        }
-    </script>
 
 </body>
 

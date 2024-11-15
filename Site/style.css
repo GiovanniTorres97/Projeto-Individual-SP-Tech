@@ -12,6 +12,7 @@ html, body {
     flex-direction: column;
     box-sizing: border-box;
     font-family: 'BloggerSans';
+    overflow-y: auto;
 }
 
 header {
@@ -28,6 +29,10 @@ header h1 {
     font-family: 'Segoe Script';
     font-size: 2.1rem;
     font-weight: lighter;
+}
+
+header h1 a {
+    text-decoration: none;
 }
 
 * {
@@ -72,6 +77,11 @@ main {
     height: 60rem;
     background: url("assets/images/beautiful-music-glowing-musical-notes-57bxkzfcian4xexm.jpg") no-repeat center center;
     background-size: cover;
+    overflow-y: auto;
+}
+
+main h1 {
+    font-size: 2.3rem;
 }
 
 .botaoLogin {
@@ -183,7 +193,7 @@ input::placeholder {
     height: 50rem;
     margin: 0 auto;
     text-align: center;
-    overflow: scroll;
+    overflow-y: auto;
 }
 
 .inputsQuestionario {
@@ -257,3 +267,52 @@ select option:hover {
 select:active {
     background-color:   rgba(33, 7, 39, 0.9);
 }
+
+.historia {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.904); 
+    border-radius: 4rem;
+    padding: 2rem; 
+    width: 100%; 
+    max-width: 60rem; 
+    margin: 0 auto;
+}
+
+main.menuHistoria {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 3rem;
+    gap: 2rem;
+    text-align: justify;
+    background: url("assets/images/beautiful-music-glowing-musical-notes-57bxkzfcian4xexm.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed; /* Fundo fixo */
+    min-height: 100vh; /* A altura mínima será igual à altura da tela */
+    height: auto; /* Permite que a altura se ajuste ao conteúdo */
+    overflow-y: auto; /* Ativa a rolagem do conteúdo */
+    box-sizing: border-box;
+}
+
+.menuHistoria::-webkit-scrollbar {
+    display: none;
+}
+
+main.menuHistoria h1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 0;
+}
+
+.divide2 {
+    width: 100%;
+}
+
