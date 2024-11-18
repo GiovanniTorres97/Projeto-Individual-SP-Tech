@@ -292,10 +292,10 @@ main.menuHistoria {
     text-align: justify;
     background: url("assets/images/beautiful-music-glowing-musical-notes-57bxkzfcian4xexm.jpg") no-repeat center center;
     background-size: cover;
-    background-attachment: fixed; /* Fundo fixo */
-    min-height: 100vh; /* A altura mínima será igual à altura da tela */
-    height: auto; /* Permite que a altura se ajuste ao conteúdo */
-    overflow-y: auto; /* Ativa a rolagem do conteúdo */
+    background-attachment: fixed;
+    min-height: 100vh; 
+    height: auto; 
+    overflow-y: auto; 
     box-sizing: border-box;
 }
 
