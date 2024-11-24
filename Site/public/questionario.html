@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -136,48 +136,56 @@
 
 <script>
     function submitQuestionario() {
-        // Recupera o ID do usuário (pode ser do localStorage ou de uma variável global)
-        const idUsuario = localStorage.getItem("idUsuario");
+    // Recupera o ID do usuário (pode ser do localStorage ou de uma variável global)
+    const idUsuario = localStorage.getItem("idUsuario");
 
-        // Coleta as respostas do formulário
-        const respostas = [
-            { fkPergunta: 1, resposta: document.querySelector("select[name='q1']").value },
-            { fkPergunta: 2, resposta: document.querySelector("select[name='q2']").value },
-            { fkPergunta: 3, resposta: document.querySelector("select[name='q3']").value },
-            { fkPergunta: 4, resposta: document.querySelector("select[name='q4']").value },
-            { fkPergunta: 5, resposta: document.querySelector("select[name='q5']").value },
-            { fkPergunta: 6, resposta: document.querySelector("select[name='q6']").value },
-            { fkPergunta: 7, resposta: document.querySelector("select[name='q7']").value },
-            { fkPergunta: 8, resposta: document.querySelector("select[name='q8']").value },
-            { fkPergunta: 9, resposta: document.querySelector("select[name='q9']").value }
-        ];
-
-        // Verifica se todas as respostas foram preenchidas
-        const respostasPreenchidas = respostas.every(resposta => resposta.resposta !== "#");
-
-        if (!respostasPreenchidas) {
-            alert("Por favor, preencha todas as perguntas.");
-            return;
-        }
-
-        // Envia a requisição POST para salvar as respostas
-        fetch("/api/respostas", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                idUsuarioServer: idUsuario,  // ID do usuário
-                respostasServer: respostas  // Respostas do questionário
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Respostas salvas:", data);
-            alert("Respostas enviadas com sucesso!");
-        })
-        .catch(error => {
-            console.error("Erro ao enviar respostas:", error);
-        });
+    // Verifica se o usuário está autenticado
+    if (!idUsuario) {
+        alert("Você precisa estar logado para responder ao questionário.");
+        return;
     }
+
+    // Coleta as respostas do formulário
+    const respostas = [
+        { fkPergunta: 1, resposta: document.querySelector("select[name='q1']").value },
+        { fkPergunta: 2, resposta: document.querySelector("select[name='q2']").value },
+        { fkPergunta: 3, resposta: document.querySelector("select[name='q3']").value },
+        { fkPergunta: 4, resposta: document.querySelector("select[name='q4']").value },
+        { fkPergunta: 5, resposta: document.querySelector("select[name='q5']").value },
+        { fkPergunta: 6, resposta: document.querySelector("select[name='q6']").value },
+        { fkPergunta: 7, resposta: document.querySelector("select[name='q7']").value },
+        { fkPergunta: 8, resposta: document.querySelector("select[name='q8']").value },
+        { fkPergunta: 9, resposta: document.querySelector("select[name='q9']").value }
+    ];
+
+    // Verifica se todas as respostas foram preenchidas
+    const respostasPreenchidas = respostas.every(resposta => resposta.resposta !== "#");
+
+    if (!respostasPreenchidas) {
+        alert("Por favor, preencha todas as perguntas.");
+        return;
+    }
+
+    // Envia a requisição POST para salvar as respostas
+    fetch("/api/respostas", {  // Certifique-se que esse caminho está correto
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idUsuario: idUsuario,  // ID do usuário
+            respostas: respostas  // Respostas do questionário
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Respostas salvas:", data);
+        alert("Respostas enviadas com sucesso!");
+    })
+    .catch(error => {
+        console.error("Erro ao enviar respostas:", error);
+        alert("Ocorreu um erro ao enviar suas respostas.");
+    });
+}
+
 </script>

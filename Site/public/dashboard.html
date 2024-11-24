@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/sessao.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Garantindo que o canvas tenha sempre o mesmo tamanho */
+        #grafico {
+            position: relative;
+            height: 30vh !important;
+            width: 40vw !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="telaInicial.html">My Life, My Playlist</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="telaInicial.html">Home</a></li>
+                    <li><a href="index.html">Sobre Mim</a></li>
+                    <li><a href="questionario.html">Questionário</a></li>
+                    <li><a href="curiosidades.html">Curiosidades</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+        <div class="container-dash">
+        <h1><b>Gráficos de Respostas - Questionário Musical</b></h1>
+
+        <!-- Seletor de Pergunta -->
+        <div style="margin-bottom: 2rem;">
+            <label for="perguntaSelect">Selecione a Pergunta: </label>
+            <select id="perguntaSelect">
+                <option value="q1">1. Gênero de Música</option>
+                <option value="q2">2. Música Melhora o Humor?</option>
+                <option value="q3">3. Música Lembra Momentos Especiais?</option>
+                <option value="q4">4. Música para Relaxar ou Animar?</option>
+                <option value="q5">5. Música para Refletir ou Lazer?</option>
+                <option value="q6">6. Intensidade da Conexão Emocional</option>
+                <option value="q7">7. Música Ajuda a Lidar com Situações Difíceis?</option>
+                <option value="q8">8. Você Já Se Emocionou com Música?</option>
+                <option value="q9">9. Música Influencia sua Energia?</option>
+            </select>
+        </div>
+
+        <!-- Área para o gráfico -->
+        <div>
+            <canvas id="grafico"></canvas>
+        </div>
+    </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Life, My Playlist. A SPTech School Project</p>
+    </footer>
+
+    <script>
+        // Dados simulados para os gráficos
+        const dados = {
+            q1: {
+                labels: ['Pop', 'Rock', 'Sertanejo', 'Funk', 'MPB', 'Rap', 'Samba', 'Eletrônica'],
+                values: [12, 5, 3, 2, 6, 4, 1, 7]
+            },
+            q2: {
+                labels: ['Sim', 'Não', 'Às vezes'],
+                values: [15, 3, 7]
+            },
+            q3: {
+                labels: ['Sim', 'Não', 'Às vezes'],
+                values: [20, 2, 3]
+            },
+            q4: {
+                labels: ['Relaxar', 'Animar', 'Ambos'],
+                values: [10, 8, 7]
+            },
+            q5: {
+                labels: ['Refletir', 'Lazer', 'Ambos'],
+                values: [13, 5, 7]
+            },
+            q6: {
+                labels: ['1', '2', '3', '4', '5'],
+                values: [3, 5, 10, 7, 4]
+            },
+            q7: {
+                labels: ['Sim', 'Não'],
+                values: [18, 4]
+            },
+            q8: {
+                labels: ['Sim', 'Não'],
+                values: [16, 6]
+            },
+            q9: {
+                labels: ['Sim', 'Não'],
+                values: [14, 8]
+            }
+        };
+
+        let chartInstance = null; // Variável para armazenar a instância do gráfico
+
+        // Função para criar gráfico de barras
+        function criarGrafico(idCanvas, dadosGrafico) {
+            const ctx = document.getElementById(idCanvas).getContext('2d');
+            if (chartInstance) {
+                chartInstance.destroy(); // Destruir o gráfico existente
+            }
+            chartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: dadosGrafico.labels,
+                    datasets: [{
+                        label: 'Respostas',
+                        data: dadosGrafico.values,
+                        backgroundColor: 'rgba(255, 99, 71, 0.7)', // Cor vermelha para as barras
+                        borderColor: 'rgba(255, 99, 71, 1)', // Cor da borda da barra
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'white' // Cor da legenda
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: 'white' // Cor dos rótulos do eixo X
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.3)' // Cor das linhas do eixo X
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                color: 'white' // Cor dos rótulos do eixo Y
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.3)' // Cor das linhas do eixo Y
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Função para atualizar o gráfico com a seleção do usuário
+        function atualizarGrafico() {
+            const perguntaSelecionada = document.getElementById('perguntaSelect').value;
+            // Criar o gráfico com os dados da pergunta selecionada
+            criarGrafico('grafico', dados[perguntaSelecionada]);
+        }
+
+        // Adicionar um ouvinte de evento para o seletor de perguntas
+        document.getElementById('perguntaSelect').addEventListener('change', atualizarGrafico);
+
+        // Inicializar o gráfico com a primeira pergunta selecionada
+        atualizarGrafico();
+    </script>
+</body>
+
+</html>

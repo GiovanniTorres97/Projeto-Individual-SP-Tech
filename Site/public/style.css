@@ -347,3 +347,13 @@ main.menuHistoria h1 {
     display: flex;
     flex-direction: column;
   }
+
+  .container-dash {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.904); 
+    flex-direction: column;
+    align-items: center;
+    border-radius: 3rem;
+    width: 50rem;
+    height: 30rem;
+  }
