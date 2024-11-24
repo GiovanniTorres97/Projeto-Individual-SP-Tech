@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/icons/Wackypixel-Lesters-Electric-Guitar-Burst-Guitar.ico" type="image/x-icon">
+    <script src="./js/sessao.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <section id="banner">
+        <div class="fundo">
+            <header>
+                <div class="container">
+                    <h1><a href="telaInicial.html">My Life, My Playlist</a></h1>
+                    <nav>
+                        <ul>
+                            <li><a href="telaInicial.html">Home</a></li>
+                            <li><a href="cadastro.html">Cadastre-se</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <main>
+                <div class="telaLogin">
+                    <section id="inputs-login">
+                        <h1>Login</h1>
+                        <hr class="divide">
+                        <p>E-mail:</p>
+                        <p><input id="input_emailUsuario" placeholder="Digite seu e-mail"></p>
+                        <p>Senha:</p>
+                        <p><input type="password" id="input_senhaUsuario" placeholder="Digite sua senha"></p>
+                        <button class="botaoLogin" onclick="entrar()">Entrar</button>
+                        <p>Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+                        <div id="mensagem_erro"></div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Life, My Playlist. A SPTech School Project</p>
+    </footer>
+
+    <script>
+        function entrar() {
+            var emailVar = input_emailUsuario.value;
+            var senhaVar = input_senhaUsuario.value;
+
+            if (emailVar == "" || senhaVar == "") {
+                mensagem_erro.innerHTML = "(Preencha todos os campos)";
+                return false;
+            }
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(json => {
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.id;
+                        sessionStorage.CPF_USUARIO = json.cpf;
+
+                        window.location = "index.html";
+                    });
+                } else {
+                    resposta.text().then(texto => {
+                        mensagem_erro.innerHTML = texto;
+                    });
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            });
+
+            return false;
+        }
+
+        
+    </script>
+</body>
+</html>

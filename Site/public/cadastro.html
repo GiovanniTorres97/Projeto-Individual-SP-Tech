@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/icons/Wackypixel-Lesters-Electric-Guitar-Burst-Guitar.ico" type="image/x-icon">
+    <script src="./js/sessao.js"></script>
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <section id="banner">
+        <div class="fundo">
+            <header>
+                <div class="container">
+                    <h1><a href="telaInicial.html">My Life, My Playlist</a></h1>
+                    <nav>
+                        <ul>
+                            <li><a href="telaInicial.html">Home</a></li>
+                            <li><a href="login.html">Entrar</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <main>
+                <div class="telaCadastro">
+                    <section id="inputs-login">
+                        <h1>Cadastre-se</h1>
+                        <hr class="divide">
+                        <div class="container-form">
+                            <div>
+                                <p>CPF:</p>
+                                <p><input id="input_cpfCadastroUsuario" placeholder="Digite seu CPF"></p>
+
+                                <p>Nome:</p>
+                                <p><input id="input_nomeCadastroUsuario" placeholder="Digite seu nome"></p>
+
+                                <p>E-mail:</p>
+                                <p><input id="input_emailCadastroUsuario" placeholder="Digite seu e-mail"></p>
+                            </div>
+                            <div>
+                                <p>Senha:</p>
+                                <p><input type="password" id="input_senhaCadastroUsuario" placeholder="Digite sua senha"></p>
+
+                                <p>Confirmar Senha:</p>
+                                <p><input type="password" id="input_confirmaSenhaCadastroUsuario" placeholder="Digite sua senha novamente"></p>
+                            </div>
+                        </div>
+                        <button class="botaoLogin" onclick="cadastrar()">Cadastrar</button>
+                        <div id="mensagem_erro"></div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Life, My Playlist. A SPTech School Project</p>
+    </footer>
+
+    <script>
+        function cadastrar() {
+            var cpfVar = input_cpfCadastroUsuario.value;
+            var nomeVar = input_nomeCadastroUsuario.value;
+            var emailVar = input_emailCadastroUsuario.value;
+            var senhaVar = input_senhaCadastroUsuario.value;
+            var confirmacaoSenhaVar = input_confirmaSenhaCadastroUsuario.value;
+
+            if (cpfVar == "" || nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+                mensagem_erro.innerHTML = "(Preencha todos os campos)";
+                return false;
+            }
+
+            if (nomeVar.length < 1) {
+                mensagem_erro.innerHTML = "(Preencha o campo Nome)";
+                return false;
+            }
+
+            if (emailVar.indexOf('@') == -1) {
+                mensagem_erro.innerHTML = "(E-mail inválido)";
+                return false;
+            }
+
+            if (senhaVar.length < 6) {
+                mensagem_erro.innerHTML = "(Senha deve conter no mínimo 6 caracteres)";
+                return false;
+            }
+
+            if (senhaVar != confirmacaoSenhaVar) {
+                mensagem_erro.innerHTML = "(Senhas não coincidem)";
+                return false;
+            }
+
+            if (cpfVar.toString().length != 11) {
+                mensagem_erro.innerHTML = "(CPF inválido)";
+                return false;
+            }
+
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar,
+                    cpfServer: cpfVar
+                })
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, 2000);
+                } else {
+                    resposta.text().then(texto => {
+                        mensagem_erro.innerHTML = texto;
+                    });
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            });
+
+            return false;
+        }
+
+        // sessão
+function validarSessao() {
+    var email = sessionStorage.EMAIL_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
+    var cpf = sessionStorage.CPF_USUARIO;
+
+    var b_usuario = document.getElementById("b_usuario");
+    var b_cpf = document.getElementById("b_cpf");
+
+    if (email != null && nome != null) {
+        b_usuario.innerHTML = nome;
+        b_cpf.innerHTML = cpf;
+    } else {
+        window.location = "login.html";
+    }
+}
+
+function limparSessao() {
+    sessionStorage.clear();
+    window.location = "login.html";
+}
+
+// carregamento (loading)
+function aguardar() {
+    var divAguardar = document.getElementById("div_aguardar");
+    divAguardar.style.display = "flex";
+}
+
+function finalizarAguardar(texto) {
+    var divAguardar = document.getElementById("div_aguardar");
+    divAguardar.style.display = "none";
+
+    var divErrosLogin = document.getElementById("div_erros_login");
+    if (texto) {
+        divErrosLogin.style.display = "flex";
+        divErrosLogin.innerHTML = texto;
+    }
+}
+    </script>
+</body>
+</html>
