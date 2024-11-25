@@ -20,6 +20,7 @@
                     <li><a href="index.html">Sobre Mim</a></li>
                     <li><a href="questionario.html">Questionário</a></li>
                     <li><a href="curiosidades.html">Curiosidades</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
                 </ul>
             </nav>
         </div>
@@ -32,8 +33,8 @@
             <form id="questionario">
                 <div class="inputsQuestionario">
                     <div class="pergunta">
-                        <p>1. Qual gênero de música você mais ouve?</p>
-                        <select name="q1">
+                        <p id="pergunta1">1. Qual gênero de música você mais ouve?</p>
+                        <select id="q1">
                             <option value="#"></option>
                             <option value="pop">Pop</option>
                             <option value="rock">Rock</option>
@@ -47,8 +48,8 @@
                     </div>
 
                     <div class="pergunta">
-                        <p>2. A música ajuda a melhorar o seu humor?</p>
-                        <select name="q2">
+                        <p id="pergunta2">2. A música ajuda a melhorar o seu humor?</p>
+                        <select id="q2">
                             <option value="#"></option>
                             <option value="sim">Sim</option>
                             <option value="nao">Não</option>
@@ -57,71 +58,73 @@
                     </div>
 
                     <div class="pergunta">
-                        <p>3. A música te ajuda a lembrar de momentos especiais?</p>
-                        <select name="q3">
+                        <p id="pergunta3">3. A música te ajuda a lembrar de momentos especiais?</p>
+                        <select id="q3">
                             <option value="#"></option>
                             <option value="sim">Sim</option>
                             <option value="nao">Não</option>
                             <option value="asVezes">Às vezes</option>
                         </select>
 
-                    <div class="pergunta">
-                        <p>4. Você gosta de música mais para relaxar ou para se animar?</p>
-                        <select name="q4">
-                            <option value="#"></option>
-                            <option value="relaxar">Relaxar</option>
-                            <option value="animar">Animar</option>
-                            <option value="ambos">Ambos</option>
-                        </select>
-
-                    <div class="pergunta">
-                        <p>5. Você escuta música para refletir sobre sentimentos ou para lazer?</p>
-                        <select name="q5">
-                            <option value="#"></option>
-                            <option value="refletir">Refletir</option>
-                            <option value="lazer">Lazer</option>
-                            <option value="ambos">Ambos</option>
-                        </select>
-
-                    <div class="pergunta">
-                        <p>6.  Numa escala de 1 a 5, qual a intensidade da conexão emocional que a música gera em você? </p>
-                        <select name="q6">
-                            <option value="#"></option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    
                         <div class="pergunta">
-                            <p>7. A música ajuda a melhorar o seu humor ou a lidar com situações difíceis?</p>
-                            <select name="q7">
+                            <p id="pergunta4">4. Você gosta de música mais para relaxar ou para se animar?</p>
+                            <select id="q4">
                                 <option value="#"></option>
-                                <option value="sim">Sim</option>
-                                <option value="nao">Não</option>
+                                <option value="relaxar">Relaxar</option>
+                                <option value="animar">Animar</option>
+                                <option value="ambos">Ambos</option>
                             </select>
 
-                        <div class="pergunta">
-                            <p>8. Você já se emocionou ao ouvir uma música?</p>
-                            <select name="q8">
-                                <option value="#"></option>
-                                <option value="sim">Sim</option>
-                                <option value="nao">Não</option>
-                            </select>
-                        
-                        <div class="pergunta">
-                            <p>9. Você sente que a música influencia sua energia?</p>
-                            <select name="q9">
-                                <option value="#"></option>
-                                <option value="sim">Sim</option>
-                                <option value="nao">Não</option>
-                            </select>
-                </div>
-                    <button type="button" onclick="submitQuestionario()" class="botaoLogin">Enviar
-                        Respostas
-                    </button>
-                    <p id="resultado"></p>
+                            <div class="pergunta">
+                                <p id="pergunta5">5. Você escuta música para refletir sobre sentimentos ou para lazer?</p>
+                                <select id="q5">
+                                    <option value="#"></option>
+                                    <option value="refletir">Refletir</option>
+                                    <option value="lazer">Lazer</option>
+                                    <option value="ambos">Ambos</option>
+                                </select>
+
+                                <div class="pergunta">
+                                    <p id="pergunta6">6. Numa escala de 1 a 5, qual a intensidade da conexão emocional que a música
+                                        gera em você? </p>
+                                    <select id="q6">
+                                        <option value="#"></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+
+                                    <div class="pergunta">
+                                        <p id="pergunta7">7. A música ajuda a melhorar o seu humor ou a lidar com situações difíceis?
+                                        </p>
+                                        <select id="q7">
+                                            <option value="#"></option>
+                                            <option value="sim">Sim</option>
+                                            <option value="nao">Não</option>
+                                        </select>
+
+                                        <div class="pergunta">
+                                            <p id="pergunta8">8. Você já se emocionou ao ouvir uma música?</p>
+                                            <select id="q8">
+                                                <option value="#"></option>
+                                                <option value="sim">Sim</option>
+                                                <option value="nao">Não</option>
+                                            </select>
+
+                                            <div class="pergunta">
+                                                <p id="pergunta9">9. Você sente que a música influencia sua energia?</p>
+                                                <select id="q9">
+                                                    <option value="#"></option>
+                                                    <option value="sim">Sim</option>
+                                                    <option value="nao">Não</option>
+                                                </select>
+                                            </div>
+                                            <button type="button" onclick="enviarRespostas()" class="botaoLogin">Enviar
+                                                Respostas</button>
+
+                                            <p id="resultado"></p>
             </form>
         </div>
     </main>
@@ -135,57 +138,52 @@
 </html>
 
 <script>
-    function submitQuestionario() {
-    // Recupera o ID do usuário (pode ser do localStorage ou de uma variável global)
-    const idUsuario = localStorage.getItem("idUsuario");
+    function enviarRespostas() {
+    
+        const resposta1 = q1.value
+        const resposta2 = q2.value
+        const resposta3 = q3.value
+        const resposta4 = q4.value
+        const resposta5 = q5.value
+        const resposta6 = q6.value
+        const resposta7 = q7.value
+        const resposta8 = q8.value
+        const resposta9 = q9.value
+        const idUsuario = JSON.parse(sessionStorage.ID_USUARIO)
+        console.log(resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8, resposta9)
 
-    // Verifica se o usuário está autenticado
-    if (!idUsuario) {
-        alert("Você precisa estar logado para responder ao questionário.");
-        return;
+        fetch("/questionario/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                resposta1: resposta1,
+                resposta2: resposta2,
+                resposta3: resposta3,
+                resposta4: resposta4,
+                resposta5: resposta5,
+                resposta6: resposta6,
+                resposta7: resposta7,
+                resposta8: resposta8,
+                resposta9: resposta9,
+                idUsuario: idUsuario
+            })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, 2000);
+            } else {
+                resposta.text().then(texto => {
+                    mensagem_erro.innerHTML = texto;
+                });
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        });
+
+        return false;
     }
-
-    // Coleta as respostas do formulário
-    const respostas = [
-        { fkPergunta: 1, resposta: document.querySelector("select[name='q1']").value },
-        { fkPergunta: 2, resposta: document.querySelector("select[name='q2']").value },
-        { fkPergunta: 3, resposta: document.querySelector("select[name='q3']").value },
-        { fkPergunta: 4, resposta: document.querySelector("select[name='q4']").value },
-        { fkPergunta: 5, resposta: document.querySelector("select[name='q5']").value },
-        { fkPergunta: 6, resposta: document.querySelector("select[name='q6']").value },
-        { fkPergunta: 7, resposta: document.querySelector("select[name='q7']").value },
-        { fkPergunta: 8, resposta: document.querySelector("select[name='q8']").value },
-        { fkPergunta: 9, resposta: document.querySelector("select[name='q9']").value }
-    ];
-
-    // Verifica se todas as respostas foram preenchidas
-    const respostasPreenchidas = respostas.every(resposta => resposta.resposta !== "#");
-
-    if (!respostasPreenchidas) {
-        alert("Por favor, preencha todas as perguntas.");
-        return;
-    }
-
-    // Envia a requisição POST para salvar as respostas
-    fetch("/api/respostas", {  // Certifique-se que esse caminho está correto
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            idUsuario: idUsuario,  // ID do usuário
-            respostas: respostas  // Respostas do questionário
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Respostas salvas:", data);
-        alert("Respostas enviadas com sucesso!");
-    })
-    .catch(error => {
-        console.error("Erro ao enviar respostas:", error);
-        alert("Ocorreu um erro ao enviar suas respostas.");
-    });
-}
-
 </script>

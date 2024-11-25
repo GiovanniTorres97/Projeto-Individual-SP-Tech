@@ -354,6 +354,37 @@ main.menuHistoria h1 {
     flex-direction: column;
     align-items: center;
     border-radius: 3rem;
-    width: 50rem;
-    height: 30rem;
+    width: 65rem;
+    height: 40rem;
   }
+
+ 
+.kpi-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.kpi-item {
+    background-color: rgba(34, 33, 33, 0.568);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 20rem ;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    
+}
+
+.kpi-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-item p {
+    font-size: 2rem;
+    font-weight: bold;
+}

@@ -37,30 +37,44 @@
 
     <main>
         <div class="container-dash">
-        <h1><b>Gráficos de Respostas - Questionário Musical</b></h1>
-
-        <!-- Seletor de Pergunta -->
-        <div style="margin-bottom: 2rem;">
-            <label for="perguntaSelect">Selecione a Pergunta: </label>
-            <select id="perguntaSelect">
-                <option value="q1">1. Gênero de Música</option>
-                <option value="q2">2. Música Melhora o Humor?</option>
-                <option value="q3">3. Música Lembra Momentos Especiais?</option>
-                <option value="q4">4. Música para Relaxar ou Animar?</option>
-                <option value="q5">5. Música para Refletir ou Lazer?</option>
-                <option value="q6">6. Intensidade da Conexão Emocional</option>
-                <option value="q7">7. Música Ajuda a Lidar com Situações Difíceis?</option>
-                <option value="q8">8. Você Já Se Emocionou com Música?</option>
-                <option value="q9">9. Música Influencia sua Energia?</option>
-            </select>
+            <h1><b>Gráficos de Respostas - Questionário Musical</b></h1>
+    
+            <!-- KPIs -->
+            <div class="kpi-container">
+                <div class="kpi-item">
+                    <h3>Usuários Cadastrados</h3>
+                    <p id="usuarios"></p> 
+                </div>
+                <div class="kpi-item">
+                    <h3>Gênero de Música Mais Escutado</h3>
+                    <p id="genero"></p> 
+                </div>
+            </div>
+    
+            <!-- Seletor de Pergunta -->
+            <div style="margin-bottom: 2rem;">
+                <label for="perguntaSelect">Selecione a Pergunta: </label>
+                <select id="perguntaSelect">
+                    <option value="q1">1. Gênero de Música</option>
+                    <option value="q2">2. Música Melhora o Humor?</option>
+                    <option value="q3">3. Música Lembra Momentos Especiais?</option>
+                    <option value="q4">4. Música para Relaxar ou Animar?</option>
+                    <option value="q5">5. Música para Refletir ou Lazer?</option>
+                    <option value="q6">6. Intensidade da Conexão Emocional</option>
+                    <option value="q7">7. Música Ajuda a Lidar com Situações Difíceis?</option>
+                    <option value="q8">8. Você Já Se Emocionou com Música?</option>
+                    <option value="q9">9. Música Influencia sua Energia?</option>
+                </select>
+            </div>
+    
+       
+            <div>
+                <canvas id="grafico"></canvas>
+            </div>
         </div>
-
-        <!-- Área para o gráfico -->
-        <div>
-            <canvas id="grafico"></canvas>
-        </div>
-    </div>
     </main>
+    
+    
 
     <footer>
         <p>&copy; 2024 My Life, My Playlist. A SPTech School Project</p>
@@ -122,9 +136,9 @@
                     datasets: [{
                         label: 'Respostas',
                         data: dadosGrafico.values,
-                        backgroundColor: 'rgba(255, 99, 71, 0.7)', // Cor vermelha para as barras
-                        borderColor: 'rgba(255, 99, 71, 1)', // Cor da borda da barra
-                        borderWidth: 1
+                        backgroundColor: 'rgba(180, 5, 219, 0.829)', // Cor vermelha para as barras
+                        borderColor: 'rgb(0, 230, 199)', // Cor da borda da barra
+                        borderWidth: 1.5
                     }]
                 },
                 options: {
