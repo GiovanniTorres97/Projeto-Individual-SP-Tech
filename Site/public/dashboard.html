@@ -38,41 +38,41 @@
     <main>
         <div class="container-dash">
             <h1><b>Gráficos de Respostas - Questionário Musical</b></h1>
-    
+
             <!-- KPIs -->
             <div class="kpi-container">
 
                 <div class="kpi-item">
                     <h3>Gênero de Música Mais Escutado</h3>
                     <span id="genero"></span>
-                    <span id="qtdVezesOuvida"></span> 
+                    <span id="qtdVezesOuvida"></span>
                 </div>
             </div>
-    
+
             <!-- Seletor de Pergunta -->
             <div style="margin-bottom: 2rem;">
                 <label for="perguntaSelect">Selecione a Pergunta: </label>
-                <select id="perguntaSelect">
-                    <option value="q1">1. Gênero de Música</option>
-                    <option value="q2">2. Música Melhora o Humor?</option>
-                    <option value="q3">3. Música Lembra Momentos Especiais?</option>
-                    <option value="q4">4. Música para Relaxar ou Animar?</option>
-                    <option value="q5">5. Música para Refletir ou Lazer?</option>
-                    <option value="q6">6. Intensidade da Conexão Emocional</option>
-                    <option value="q7">7. Música Ajuda a Lidar com Situações Difíceis?</option>
-                    <option value="q8">8. Você Já Se Emocionou com Música?</option>
-                    <option value="q9">9. Música Influencia sua Energia?</option>
+                <select id="perguntaSelect" onchange="obterDados(value)">
+                    <option value="1">1. Gênero de Música</option>
+                    <option value="2">2. Música Melhora o Humor?</option>
+                    <option value="3">3. Música Lembra Momentos Especiais?</option>
+                    <option value="4">4. Música para Relaxar ou Animar?</option>
+                    <option value="5">5. Música para Refletir ou Lazer?</option>
+                    <option value="6">6. Intensidade da Conexão Emocional</option>
+                    <option value="7">7. Música Ajuda a Lidar com Situações Difíceis?</option>
+                    <option value="8">8. Você Já Se Emocionou com Música?</option>
+                    <option value="9">9. Música Influencia sua Energia?</option>
                 </select>
             </div>
-    
-       
+
+
             <div>
                 <canvas id="grafico"></canvas>
             </div>
         </div>
     </main>
-    
-    
+
+
 
     <footer>
         <p>&copy; 2024 My Life, My Playlist. A SPTech School Project</p>
@@ -83,131 +83,182 @@
         const dados = {
             q1: {
                 labels: ['Pop', 'Rock', 'Sertanejo', 'Funk', 'MPB', 'Rap', 'Samba', 'Eletrônica'],
-                values: [12, 5, 3, 2, 6, 4, 1, 7]
+                values: []
             },
             q2: {
                 labels: ['Sim', 'Não', 'Às vezes'],
-                values: [15, 3, 7]
+                values: []
             },
             q3: {
                 labels: ['Sim', 'Não', 'Às vezes'],
-                values: [20, 2, 3]
+                values: []
             },
             q4: {
                 labels: ['Relaxar', 'Animar', 'Ambos'],
-                values: [10, 8, 7]
+                values: []
             },
             q5: {
                 labels: ['Refletir', 'Lazer', 'Ambos'],
-                values: [13, 5, 7]
+                values: []
             },
             q6: {
                 labels: ['1', '2', '3', '4', '5'],
-                values: [3, 5, 10, 7, 4]
+                values: []
             },
             q7: {
                 labels: ['Sim', 'Não'],
-                values: [18, 4]
+                values: []
             },
             q8: {
                 labels: ['Sim', 'Não'],
-                values: [16, 6]
+                values: []
             },
             q9: {
                 labels: ['Sim', 'Não'],
-                values: [14, 8]
+                values: []
             }
         };
 
-        let chartInstance = null; // Variável para armazenar a instância do gráfico
+
 
         // Função para criar gráfico de barras
-        function criarGrafico(idCanvas, dadosGrafico) {
-            const ctx = document.getElementById(idCanvas).getContext('2d');
-            if (chartInstance) {
-                chartInstance.destroy(); // Destruir o gráfico existente
-            }
-            chartInstance = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: dadosGrafico.labels,
-                    datasets: [{
-                        label: 'Respostas',
-                        data: dadosGrafico.values,
-                        backgroundColor: 'rgba(180, 5, 219, 0.829)', // Cor vermelha para as barras
-                        borderColor: 'rgb(0, 230, 199)', // Cor da borda da barra
-                        borderWidth: 1.5
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            labels: {
-                                color: 'white' // Cor da legenda
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            ticks: {
-                                color: 'white' // Cor dos rótulos do eixo X
-                            },
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.3)' // Cor das linhas do eixo X
-                            }
-                        },
-                        y: {
-                            ticks: {
-                                color: 'white' // Cor dos rótulos do eixo Y
-                            },
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.3)' // Cor das linhas do eixo Y
-                            }
-                        }
-                    }
-                }
-            });
-        }
+        // function criarGrafico(idCanvas, dadosGrafico) {
+        //     const ctx = document.getElementById(idCanvas).getContext('2d');
+
+        //     chartInstance = new Chart(ctx, {
+        //         type: 'bar',
+        //         data: {
+        //             labels: dadosGrafico.labels,
+        //             datasets: [{
+        //                 label: 'Respostas',
+        //                 data: dadosGrafico.values,
+        //                 backgroundColor: 'rgba(180, 5, 219, 0.829)', // Cor vermelha para as barras
+        //                 borderColor: 'rgb(0, 230, 199)', // Cor da borda da barra
+        //                 borderWidth: 1.5
+        //             }]
+        //         },
+
+        //                 }
+        //             }
+        //         }
+        //     });
+        // }
 
         // Função para atualizar o gráfico com a seleção do usuário
-        function atualizarGrafico() {
-            const perguntaSelecionada = document.getElementById('perguntaSelect').value;
-            // Criar o gráfico com os dados da pergunta selecionada
-            criarGrafico('grafico', dados[perguntaSelecionada]);
-        }
 
         // Adicionar um ouvinte de evento para o seletor de perguntas
-        document.getElementById('perguntaSelect').addEventListener('change', atualizarGrafico);
 
-        // Inicializar o gráfico com a primeira pergunta selecionada
-        atualizarGrafico();
 
         function obterGeneroMaisEscutado() {
 
-        fetch("/dashboard/obterGeneroMaisEscutado", {
-           cache:"no-store"
-        }).then(function (resposta) {
-            if (resposta.ok) {
-                resposta.json().then(function(json){
-                   
-                    
-                    genero.innerHTML += json[0].genero
-                    qtdVezesOuvida.innerHTML += json[0].qtdEscolhido
-                    
-                })
-                
-                
-            } else {
-                resposta.text().then(texto => {
-                    mensagem_erro.innerHTML = texto;
-                });
-            }
-        }).catch(function (erro) {
-            console.log(erro);
-        });
+            fetch("/dashboard/obterGeneroMaisEscutado", {
+                cache: "no-store"
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (json) {
+
+
+                        genero.innerHTML += json[0].genero
+                        qtdVezesOuvida.innerHTML += json[0].qtdEscolhido
+
+                    })
+
+
+                } else {
+                    resposta.text().then(texto => {
+                        mensagem_erro.innerHTML = texto;
+                    });
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            });
 
         }
+        var myChart = false
+        obterDados(1)
+        function obterDados(fkPergunta) {
+            fetch(`/dashboard/obterDados/${fkPergunta}`, {
+                cache: "no-store"
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (json) {
+
+                        if (myChart) {
+                            myChart.destroy(); // Destruir o gráfico existente
+                        }
+                        console.log(myChart)
+                        let labels = [];
+                        let dados = {
+                            labels: labels,
+                            datasets: [{
+                                label: '',
+                                data: [],
+                                backgroundColor: 'rgba(180, 5, 219, 0.829)', // Cor vermelha para as barras
+                                borderColor: 'rgb(0, 230, 199)', // Cor da borda da barra
+                                borderWidth: 1.5
+                            },
+
+                            ]
+                        };
+
+                        for (i = 0; i < json.length; i++) {
+                            var registro = json[i];
+                            labels.push(registro.genero);
+                            dados.datasets[0].data.push(registro.qtdEscolhido);
+                        }
+
+                        const config = {
+                            type: 'bar',
+                            data: dados,
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        labels: {
+                                            color: 'white' // Cor da legenda
+                                        }
+                                    }
+                                },
+                                scales: {
+                                    x: {
+                                        ticks: {
+                                            color: 'white' // Cor dos rótulos do eixo X
+                                        },
+                                        grid: {
+                                            color: 'rgba(255, 255, 255, 0.3)' // Cor das linhas do eixo X
+                                        }
+                                    },
+                                    y: {
+                                        ticks: {
+                                            color: 'white' // Cor dos rótulos do eixo Y
+                                        },
+                                        grid: {
+                                            color: 'rgba(255, 255, 255, 0.3)' // Cor das linhas do eixo Y
+                                        }
+                                    }
+                                }
+                            }
+                        };
+
+                        myChart = new Chart(
+                            document.getElementById("grafico"),
+                            config
+                        );
+
+                    })
+
+
+                } else {
+                    resposta.text().then(texto => {
+                        mensagem_erro.innerHTML = texto;
+                    });
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            });
+
+        }
+
     </script>
 </body>
 

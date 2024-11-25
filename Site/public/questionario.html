@@ -36,14 +36,14 @@
                         <p id="pergunta1">1. Qual gênero de música você mais ouve?</p>
                         <select id="q1">
                             <option value="#"></option>
-                            <option value="pop">Pop</option>
-                            <option value="rock">Rock</option>
-                            <option value="sertanejo">Sertanejo</option>
-                            <option value="funk">Funk</option>
-                            <option value="mpb">MPB</option>
-                            <option value="rap">Rap</option>
-                            <option value="samba">Samba</option>
-                            <option value="eletronica">Eletrônica</option>
+                            <option value="Pop">Pop</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Sertanejo">Sertanejo</option>
+                            <option value="Funk">Funk</option>
+                            <option value="Mpb">MPB</option>
+                            <option value="Rap">Rap</option>
+                            <option value="Samba">Samba</option>
+                            <option value="Eletronica">Eletrônica</option>
                         </select>
                     </div>
 
@@ -171,13 +171,12 @@
             })
         }).then(function (resposta) {
             if (resposta.ok) {
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
                 setTimeout(() => {
-                    window.location = "login.html";
+                    window.location = "dashboard.html";
                 }, 2000);
             } else {
                 resposta.text().then(texto => {
-                    mensagem_erro.innerHTML = texto;
+                   
                 });
             }
         }).catch(function (erro) {

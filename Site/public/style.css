@@ -376,6 +376,7 @@ main.menuHistoria h1 {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    font-size: 1.5rem;
     
 }
 

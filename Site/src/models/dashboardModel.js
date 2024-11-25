@@ -9,6 +9,16 @@ function obterGeneroMaisEscutado() {
     return database.executar(instrucaoSql);
 }
 
+function obterDados(fkPergunta) {
+    var instrucaoSql = `
+    select resposta as genero, count(resposta) as qtdEscolhido from respostas
+	where fkPergunta = ${fkPergunta}
+			group by resposta order by count(resposta) desc;
+    `
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
-    obterGeneroMaisEscutado
+    obterGeneroMaisEscutado,
+    obterDados
 };
