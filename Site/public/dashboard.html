@@ -18,7 +18,7 @@
     </style>
 </head>
 
-<body>
+<body onload="obterGeneroMaisEscutado()">
     <header>
         <div class="container">
             <h1><a href="telaInicial.html">My Life, My Playlist</a></h1>
@@ -41,13 +41,11 @@
     
             <!-- KPIs -->
             <div class="kpi-container">
-                <div class="kpi-item">
-                    <h3>Usuários Cadastrados</h3>
-                    <p id="usuarios"></p> 
-                </div>
+
                 <div class="kpi-item">
                     <h3>Gênero de Música Mais Escutado</h3>
-                    <p id="genero"></p> 
+                    <span id="genero"></span>
+                    <span id="qtdVezesOuvida"></span> 
                 </div>
             </div>
     
@@ -184,6 +182,32 @@
 
         // Inicializar o gráfico com a primeira pergunta selecionada
         atualizarGrafico();
+
+        function obterGeneroMaisEscutado() {
+
+        fetch("/dashboard/obterGeneroMaisEscutado", {
+           cache:"no-store"
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function(json){
+                   
+                    
+                    genero.innerHTML += json[0].genero
+                    qtdVezesOuvida.innerHTML += json[0].qtdEscolhido
+                    
+                })
+                
+                
+            } else {
+                resposta.text().then(texto => {
+                    mensagem_erro.innerHTML = texto;
+                });
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        });
+
+        }
     </script>
 </body>
 
